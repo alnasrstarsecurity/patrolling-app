@@ -94,7 +94,7 @@ async function submitVisit() {
   setTimeout(() => statusEl.innerText = "", 2000);
 } else {
   statusEl.style.color = "red";
-  statusEl.innerText = "❌ " + (result.message || "Submission failed");
+  statusEl.innerText = "❌ " + (result.message || "Submission failedd");
 }
 
 
