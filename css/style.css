@@ -111,3 +111,9 @@ button.secondary {
   text-align: center;
   font-size: 14px;
 }
+
+/* logo */
+  .logo {
+            width: 120px;
+            margin-bottom: 15px;
+  }
