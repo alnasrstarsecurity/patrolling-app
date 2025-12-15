@@ -114,7 +114,8 @@ button.secondary {
 
 /* logo */
   .logo {
-            display: block; 
+            display: flex; 
+            justify-content: center;
             width: 120px;
             margin-bottom: 15px;
   }
