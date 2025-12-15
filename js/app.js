@@ -23,7 +23,15 @@ ctx.lineCap = "round";
 
 let drawing = false;
 
-/* ----------- POSITION ----------- */
+function resizeCanvas() {
+  const rect = canvas.getBoundingClientRect();
+  canvas.width = rect.width;
+  canvas.height = rect.height;
+}
+
+window.addEventListener("load", resizeCanvas);
+window.addEventListener("resize", resizeCanvas);
+
 function getPos(e) {
   const rect = canvas.getBoundingClientRect();
 
@@ -32,15 +40,10 @@ function getPos(e) {
       x: e.touches[0].clientX - rect.left,
       y: e.touches[0].clientY - rect.top
     };
-  } else {
-    return {
-      x: e.offsetX,
-      y: e.offsetY
-    };
   }
+  return { x: e.offsetX, y: e.offsetY };
 }
 
-/* ----------- START ----------- */
 function startDraw(e) {
   e.preventDefault();
   drawing = true;
@@ -49,7 +52,6 @@ function startDraw(e) {
   ctx.moveTo(pos.x, pos.y);
 }
 
-/* ----------- DRAW ----------- */
 function draw(e) {
   if (!drawing) return;
   e.preventDefault();
@@ -58,13 +60,11 @@ function draw(e) {
   ctx.stroke();
 }
 
-/* ----------- END ----------- */
 function endDraw(e) {
   e.preventDefault();
   drawing = false;
 }
 
-/* ----------- EVENTS ----------- */
 canvas.addEventListener("mousedown", startDraw);
 canvas.addEventListener("mousemove", draw);
 canvas.addEventListener("mouseup", endDraw);
@@ -74,10 +74,10 @@ canvas.addEventListener("touchstart", startDraw, { passive: false });
 canvas.addEventListener("touchmove", draw, { passive: false });
 canvas.addEventListener("touchend", endDraw);
 
-/* ----------- CLEAR ----------- */
 function clearSign() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 }
+
 
 
 /* FILE → BASE64 */
