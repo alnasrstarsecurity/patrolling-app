@@ -2,6 +2,11 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbydAeCCsW7MGoa0zur8U
 
 document.getElementById("aqclForm").addEventListener("submit", submitAQCL);
 
+function radio(name) {
+  const r = document.querySelector(`input[name="${name}"]:checked`);
+  return r ? r.value : "";
+}
+
 function yn(id) {
   return document.getElementById(id).checked ? "YES" : "NO";
 }
@@ -17,15 +22,15 @@ function submitAQCL(e) {
     password: localStorage.pass,
 
     accommodation: accName.value,
-    guardPosition: yn("guardPosition"),
+    guardPosition: radio("guardPosition"),
     numGuards: numGuards.value,
     guardAppearance: guardAppearance.value,
     deskAppearance: deskAppearance.value,
     guardContact: guardContact.value,
-    walkPatrol: yn("walkPatrol"),
-    patrolEffective: yn("patrolEffective"),
+    walkPatrol: radio("walkPatrol"),
+    patrolEffective: radio("patrolEffective"),
     changesMade: changesMade.value,
-    qrCheck: yn("qrCheck"),
+    qrCheck: radio("qrCheck"),
     lastVisit: lastVisit.value,
     supervisorName: supervisorName.value,
     supervisors7: supervisors7.value,
@@ -39,8 +44,8 @@ function submitAQCL(e) {
     apartmentInspection: apartmentInspection.value,
     apartmentRemark: apartmentRemark.value,
     actionsTaken: actionsTaken.value,
-    guard1cag: guard1cag.value,
-    guard2cag: guard2cag.value,
+    guard1cag: `Communication:${radio("g1_comm")} | Awareness:${radio("g1_aware")} | Grooming:${radio("g1_groom")}`,
+    guard2cag: `Communication:${radio("g2_comm")} | Awareness:${radio("g2_aware")} | Grooming:${radio("g2_groom")}`,
     patrollingSupervisor: patrollingSupervisor.value,
     serial: serial.value,
     buildingSecurity: buildingSecurity.value,
