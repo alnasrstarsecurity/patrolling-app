@@ -31,12 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
     <button onclick="location.href='incident.html'">Incident Report</button>
     <button onclick="location.href='far.html'">Fire Alarm Report</button>
 
-  <button onclick="logout()">Logout</button>
+    <button onclick="logout()">Logout</button>
 
 <script>
 function logout() {
-  sessionStorage.clear();
-  location.href = "index.html";
+  localStorage.removeItem("LOGGED_IN");
+  localStorage.removeItem("USERNAME");
+  window.location.replace("index.html");
 }
 </script>
 
