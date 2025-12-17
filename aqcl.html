@@ -1,5 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+<script>
+if (localStorage.getItem("loggedIn") !== "YES") {
+  location.href = "index.html";
+}
+</script>
+  
 <head>
   <meta charset="UTF-8">
   <title>Accommodation Quality Check List</title>
