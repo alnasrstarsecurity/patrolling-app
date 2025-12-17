@@ -3,11 +3,14 @@
 <html lang="en">
   
 <head>
- <script>
-if (localStorage.getItem("LOGGED_IN") !== "YES") {
-  window.location.replace("index.html");
-}
+
+  <script>
+  if ((localStorage.getItem("LOGGED_IN") || "").toUpperCase() !== "YES") {
+    window.location.replace("index.html");
+  }
 </script>
+
+  
 });
 </script>
   <meta charset="UTF-8">
