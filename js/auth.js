@@ -1,4 +1,4 @@
-const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwdL5PrpTY9EfG--4FuzmoPWHwxd4VMpURpz--SXdlZRtG5u_f-_uJCJeUSVKJ0r0jrzA/exec";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwIKlC-cr-MMWa6GA4bqLlKuRFLwS-T3jJzBr0IrwlLOYEaLNH_e47Co_fXyotKcAfhIA/exec";
 
 function requireLogin() {
   if (!localStorage.getItem("user") || !localStorage.getItem("pass")) {
